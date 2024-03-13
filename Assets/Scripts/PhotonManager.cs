@@ -7,6 +7,8 @@ using Photon.Realtime;
 
 public class PhotonManager : MonoBehaviourPunCallbacks
 {
+    public SceneReference museumScene;
+    public Transform museumPosition;
 
     int SpawnedPlayers = 0;
     List<GameObject> playerObjets = new List<GameObject>();
@@ -40,6 +42,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
     {
         if (PhotonNetwork.IsConnected)
         {
+            PhotonNetwork.AutomaticallySyncScene = false;
             SpawnedPlayers++;
             if (PhotonNetwork.IsMasterClient && playerObjets.Count < PhotonNetwork.PlayerList.Length && SpawnedPlayers == PhotonNetwork.PlayerList.Length)
             {
@@ -54,7 +57,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
     public void SpawnPlayer()
     {
 
-       var player= PhotonNetwork.Instantiate(playerPrefab.name, Vector3.zero, Quaternion.identity);
+       var player= PhotonNetwork.Instantiate(playerPrefab.name, museumPosition.position, Quaternion.identity);
         player.name = player.GetComponent<PhotonView>().name;
         playerObjets.Add(player);
         player.GetComponent<PlayerManager>().photonView.RPC(nameof(PlayerManager.apagarComponents),RpcTarget.AllBuffered) ;
@@ -72,6 +75,14 @@ public class PhotonManager : MonoBehaviourPunCallbacks
                 playerObjets.Remove(gameObject);
                 Destroy(gameObject);
             }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (PhotonNetwork.IsConnected)
+        {
+            PhotonNetwork.LoadLevel(museumScene);
         }
     }
 }
