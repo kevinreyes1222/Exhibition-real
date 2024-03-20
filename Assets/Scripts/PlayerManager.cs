@@ -8,10 +8,10 @@ using Unity.VisualScripting;
 public class PlayerManager : MonoBehaviourPunCallbacks
 {
     public GameObject camarita;
-    GameObject player; 
+    Transform player; 
      void Start()
     {
-        player = camarita.transform.parent.gameObject;
+        player = camarita.transform.parent;
         photonView.RPC(nameof(apagarComponents), RpcTarget.AllBuffered); 
     }
 
