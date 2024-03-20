@@ -21,8 +21,9 @@ public class PlayerManager : MonoBehaviourPunCallbacks
         if (!photonView.IsMine)
         {
             camarita.SetActive(false);
-            DontDestroyOnLoad(player);
 
         }
+        DontDestroyOnLoad(camarita.transform.parent);
+
     }
 }
