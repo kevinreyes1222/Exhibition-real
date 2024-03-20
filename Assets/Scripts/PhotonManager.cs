@@ -61,7 +61,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         player.name = player.GetComponent<PhotonView>().name;
         playerObjets.Add(player);
         player.GetComponent<PlayerManager>().photonView.RPC(nameof(PlayerManager.apagarComponents),RpcTarget.AllBuffered) ;
-
+        DontDestroyOnLoad(player);
     }
 
     public override void OnPlayerLeftRoom(Player otherPlayer)
