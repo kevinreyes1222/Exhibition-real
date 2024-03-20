@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Lvl_MUSEUM_PUBLIC.unity
     guid: 4dddf3d500ab6d94bbf7d2466fafca5c
+  - enabled: 1
+    path: Assets/Scenes/Pantallla_inicio.unity
+    guid: 6c22a4bbddd9d9f408fc8ee24c70771b
   m_configObjects: {}

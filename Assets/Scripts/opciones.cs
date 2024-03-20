@@ -7,23 +7,10 @@ public class opciones : MonoBehaviour
 {
     [SerializeField] private AudioMixer audioMixer;
     public GameObject menu_opciones;
-    public GameObject otro_Menu;
+    public GameObject Menu_tiquet;
+    public GameObject menu_pausa;
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (menu_opciones.gameObject.activeSelf == true)
-            {
-                menu_opciones.gameObject.SetActive(false);
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
-            }
-            menu_opciones.gameObject.SetActive(true);
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-        }
-    }
+    
 
     public void PantallaCompleta(bool pantallaCompleta)
     {
@@ -43,7 +30,7 @@ public class opciones : MonoBehaviour
     public void Cerrar()
     {
         menu_opciones.gameObject.SetActive(false);
-        if (otro_Menu.gameObject.activeSelf == false)
+        if (menu_pausa.gameObject.activeSelf == false && Menu_tiquet.gameObject.activeSelf == false)
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
