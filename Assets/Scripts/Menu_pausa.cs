@@ -9,26 +9,16 @@ public class Menu_pausa : MonoBehaviourPun
     public GameObject menupausa;
     public GameObject otro_Menu;
     private GameObject[] players;
-
-    private void Start()
-    {
-        players = GameObject.FindGameObjectsWithTag("Player");
-        foreach (GameObject player in players)
-        {
-            if (photonView.IsMine && players != null)
-            {
-                GameObject playerlocal = player;
-            }
-        }
-    }
+    public bool pausa = false;
+    
 
     private void Update()
     {
         
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-           /* playerlocal.gameObject.GetComponent<Movimiento>().enabled = false;
-            playerlocal.gameObject.GetComponentInChildren<CamaraSet>().enabled = false;*/
+            pausa = true;
+            encontrarJugadores();
             if (menupausa.gameObject.activeSelf == true)
             {
                 menupausa.gameObject.SetActive(false);
@@ -48,10 +38,34 @@ public class Menu_pausa : MonoBehaviourPun
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
-            /*playerlocal.gameObject.GetComponent<Movimiento>().enabled = false;
-            playerlocal.gameObject.GetComponentInChildren<CamaraSet>().enabled = false;*/
+            pausa = false;
+            
         }
+        encontrarJugadores();
 
 
+    }
+    private void encontrarJugadores()
+    {
+        players = GameObject.FindGameObjectsWithTag("Player");
+        foreach (GameObject player in players)
+        {
+
+            PlayerManager jugador = player.GetComponent<PlayerManager>();
+            if (jugador.photonView.IsMine && player != null)
+            {
+                if (pausa == true)
+                {
+                    print(player);
+                    player.gameObject.GetComponent<Movimiento>().enabled = false;
+                    player.gameObject.GetComponentInChildren<CamaraSet>().enabled = false;
+                }
+                else if (pausa == false)
+                {
+                    player.gameObject.GetComponent<Movimiento>().enabled = true;
+                    player.gameObject.GetComponentInChildren<CamaraSet>().enabled = true;
+                }
+            }
+        }
     }
 }
