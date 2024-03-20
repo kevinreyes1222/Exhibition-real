@@ -9,6 +9,7 @@ public class Menu_pausa : MonoBehaviourPun
     public GameObject menupausa;
     public GameObject otro_Menu;
     private GameObject[] players;
+    public bool pausa = false;
 
     private void Start()
     {
@@ -17,7 +18,17 @@ public class Menu_pausa : MonoBehaviourPun
         {
             if (photonView.IsMine && players != null)
             {
-                GameObject playerlocal = player;
+                if (pausa == true)
+                {
+                    print(player);
+                    player.gameObject.GetComponent<Movimiento>().enabled = false;
+                    player.gameObject.GetComponentInChildren<CamaraSet>().enabled = false;
+                }
+                else
+                {
+                    player.gameObject.GetComponent<Movimiento>().enabled = false;
+                    player.gameObject.GetComponentInChildren<CamaraSet>().enabled = false;
+                }
             }
         }
     }
@@ -27,8 +38,7 @@ public class Menu_pausa : MonoBehaviourPun
         
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-           /* playerlocal.gameObject.GetComponent<Movimiento>().enabled = false;
-            playerlocal.gameObject.GetComponentInChildren<CamaraSet>().enabled = false;*/
+            pausa = true;
             if (menupausa.gameObject.activeSelf == true)
             {
                 menupausa.gameObject.SetActive(false);
@@ -48,8 +58,7 @@ public class Menu_pausa : MonoBehaviourPun
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
-            /*playerlocal.gameObject.GetComponent<Movimiento>().enabled = false;
-            playerlocal.gameObject.GetComponentInChildren<CamaraSet>().enabled = false;*/
+            pausa = false;
         }
 
 
