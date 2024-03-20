@@ -292,7 +292,7 @@ Transform:
   - {fileID: 1821553206}
   - {fileID: 1720931152}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &339773453
 PrefabInstance:
@@ -1185,7 +1185,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &847780836
 PrefabInstance:
@@ -1977,7 +1977,7 @@ Transform:
   - {fileID: 1175985548}
   - {fileID: 1038568130}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1175985547
 GameObject:
@@ -2722,7 +2722,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   museumScene:
     sceneAsset: {fileID: 102900000, guid: 4dddf3d500ab6d94bbf7d2466fafca5c, type: 3}
-    scenePath: Assets/Scenes/Lvl_MUSEUM_PUBLIC.unity
+    scenePath: Assets/BristishGangstersPack_Museum/Scenes/Lvl_MUSEUM_PUBLIC.unity
   museumPosition: {fileID: 838173478}
   playerPrefab: {fileID: 1661772866479176228, guid: fea2f7a76e183344ab6becb7a7129447, type: 3}
 --- !u!136 &1584911305
@@ -2802,7 +2802,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1584911309
 MonoBehaviour:
