@@ -1,30 +1,48 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.NetworkInformation;
+using Unity.VisualScripting;
 using UnityEngine;
 using Photon;
-using Photon.Pun;
 
 public class Movimiento : MonoBehaviourPunCallbacks
 {
-    
-    public float velocidad = 100f;
-    Rigidbody body;
-    // Start is called before the first frame update
-    void Start()
+    private float horizontal;
+    private float vertical;
+   
+    public Transform cameraTransform;
+    Rigidbody rb;
+
+    public Animator animator;
+
+    private void Start()
     {
-        body = GetComponent<Rigidbody>();  
+        rb = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
+   
+
+    void FixedUpdate()
     {
+
         if (photonView.IsMine)
         {
-            float horizontal = Input.GetAxis("Horizontal");
-            float vertical = Input.GetAxis("Vertical");
-            Vector3 movimiento = new Vector3(horizontal, 0, vertical) * Time.deltaTime * velocidad;
-            body.velocity = movimiento;
+           // horizontal = Input.GetAxisRaw("Horizontal");
+            vertical = Input.GetAxisRaw("Vertical");
+
+            //var m = (cameraTransform.forward * vertical + cameraTransform.right * horizontal) * Time.deltaTime * 100;
+            var m = (cameraTransform.forward * vertical) * Time.deltaTime * 100;
+            //rb.velocity = ;
+            rb.velocity = new Vector3(m.x, rb.velocity.y, m.z);
+            animator.SetFloat("Speed",rb.velocity.magnitude);
+            
         }
        
+
+
     }
+
+    
 }
