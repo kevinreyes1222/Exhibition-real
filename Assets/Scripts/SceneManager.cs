@@ -12,4 +12,9 @@ public class SceneManager : MonoBehaviour
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(Scene);
     }
+
+    public void Cerrar()
+    {
+        Application.Quit();
+    }
 }
