@@ -1979,7 +1979,7 @@ GameObject:
   - component: {fileID: 630424030}
   - component: {fileID: 630424029}
   m_Layer: 5
-  m_Name: Salir del juego
+  m_Name: reanudar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5985,7 +5985,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menupausa: {fileID: 1064062601}
   otro_Menu: {fileID: 421543078}
-  player: {fileID: 1661772866479176228, guid: fea2f7a76e183344ab6becb7a7129447, type: 3}
+  pausa: 0
 --- !u!114 &1649084354
 MonoBehaviour:
   m_ObjectHideFlags: 0
