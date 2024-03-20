@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon;
 using Photon.Pun;
+using Unity.VisualScripting;
 
 public class PlayerManager : MonoBehaviourPunCallbacks
 {
     public GameObject camarita;
+    GameObject player; 
      void Start()
     {
+        player = camarita.transform.parent.gameObject;
         photonView.RPC(nameof(apagarComponents), RpcTarget.AllBuffered); 
     }
 
@@ -18,6 +21,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
         if (!photonView.IsMine)
         {
             camarita.SetActive(false);
+            DontDestroyOnLoad(player);
 
         }
     }
