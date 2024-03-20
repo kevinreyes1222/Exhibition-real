@@ -1,9 +1,11 @@
 using JetBrains.Annotations;
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VendedorScript : MonoBehaviour
+
+public class VendedorScript : MonoBehaviourPunCallbacks
 {
     public AudioClip audioClip;
     private AudioSource audioSource;
@@ -28,6 +30,8 @@ public class VendedorScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+            
+        if (!other.gameObject.GetPhotonView().IsMine) return;
 
         if (other.CompareTag("Player") && !clipPlayed)
         {

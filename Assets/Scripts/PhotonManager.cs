@@ -4,7 +4,7 @@ using UnityEngine;
 using Photon;
 using Photon.Pun;
 using Photon.Realtime;
-
+using UnityEngine.SceneManagement;
 public class PhotonManager : MonoBehaviourPunCallbacks
 {
     public SceneReference museumScene;
@@ -77,12 +77,13 @@ public class PhotonManager : MonoBehaviourPunCallbacks
             }
         }
     }
-
+    
     private void OnTriggerEnter(Collider other)
     {
-        if (PhotonNetwork.IsConnected)
-        {
-            PhotonNetwork.LoadLevel(museumScene);
-        }
+        if (!other.gameObject.GetPhotonView().IsMine) return;
+
+        PhotonNetwork.LoadLevel(museumScene);
+        
     }
 }
+
