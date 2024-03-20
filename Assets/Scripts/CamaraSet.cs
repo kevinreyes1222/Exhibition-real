@@ -22,13 +22,16 @@ public class CamaraSet : MonoBehaviour
     public float maxYAngle = 60.0f;
     private float rotationY = 0.0f;
 
-
-
-    void Start()
+    private void Awake()
     {
         //impide que el cursor se vea y se salga de la ventana de juego 
 
-            OcultarCursor();
+        OcultarCursor();
+    }
+
+    void Start()
+    {
+        
         
       
     }
@@ -56,7 +59,7 @@ public class CamaraSet : MonoBehaviour
 
             //Escape para habilitar el cursor del mouse
 
-            if (Input.GetKeyDown(KeyCode.Escape))
+            /*if (Input.GetKeyDown(KeyCode.Escape))
             {
                 cursorVisible = !cursorVisible;
                 if (cursorVisible)
@@ -67,7 +70,7 @@ public class CamaraSet : MonoBehaviour
                 {
                     OcultarCursor();
                 }
-            }
+            }*/
 
         }
 
