@@ -17,8 +17,7 @@ public class CamaraSet : MonoBehaviour
 
     //public Vector2 sensibilidad;
     public float sensitivity = 2.0f; // Sensibilidad del mouse
-    private float camaraX;
-    private float camaraY;
+    
     public float minYAngle = -60.0f;
     public float maxYAngle = 60.0f;
     private float rotationY = 0.0f;
@@ -39,19 +38,6 @@ public class CamaraSet : MonoBehaviour
         {
             // Actualiza la posición de la cámara para seguir al personaje con un pequeño desfase.
             transform.position = personaje.position + offset  ;
-
-            /* camaraX = Input.GetAxisRaw("Mouse X");
-             camaraY = Input.GetAxisRaw("Mouse Y");
-
-             if (camaraX != 0)
-             {
-              transform.Rotate(Vector3.up * camaraX * sensibilidad.x, Space.World);
-             }
-
-             if (camaraY != 0)
-             {
-                 transform.Rotate(Vector3.left * camaraY * sensibilidad.y);
-             }*/
 
 
             float mouseX = Input.GetAxis("Mouse X") * sensitivity;
@@ -85,6 +71,17 @@ public class CamaraSet : MonoBehaviour
 
         }
 
+    }
+    void OnApplicationFocus(bool hasFocus)
+    {
+        if (hasFocus)
+        {
+            OcultarCursor();
+        }
+        else
+        {
+            MostrarCursor();
+        }
     }
 
     public void OcultarCursor()
