@@ -144,7 +144,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   personaje: {fileID: 3354008492894508253}
   offset: {x: 0, y: 1, z: 0}
-  sensibilidad: {x: 5, y: 5}
+  sensitivity: 2
+  minYAngle: -60
+  maxYAngle: 60
 --- !u!1 &4252174458780485984
 GameObject:
   m_ObjectHideFlags: 0
@@ -402,6 +404,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraTransform: {fileID: 6518666848609581348}
+  animator: {fileID: 0}
 --- !u!114 &2564688912738909006
 MonoBehaviour:
   m_ObjectHideFlags: 0

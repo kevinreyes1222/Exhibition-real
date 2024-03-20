@@ -18,13 +18,13 @@ public class Movimientoo : MonoBehaviourPunCallbacks
     // Update is called once per frame
     void Update()
     {
-        if (photonView.IsMine)
-        {
+       // if (photonView.IsMine)
+       // {
             float horizontal = Input.GetAxis("Horizontal");
             float vertical = Input.GetAxis("Vertical");
             Vector3 movimiento = new Vector3(horizontal, 0, vertical) * Time.deltaTime * velocidad;
             body.velocity = movimiento;
-        }
+       // }
        
     }
 }
