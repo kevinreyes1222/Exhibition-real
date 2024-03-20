@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Menu_pausa : MonoBehaviour
 {
     public GameObject menupausa;
     public GameObject otro_Menu;
+    public GameObject player;
 
     private void Update()
     {

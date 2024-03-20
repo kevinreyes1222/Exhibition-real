@@ -5985,6 +5985,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menupausa: {fileID: 1064062601}
   otro_Menu: {fileID: 421543078}
+  player: {fileID: 1661772866479176228, guid: fea2f7a76e183344ab6becb7a7129447, type: 3}
 --- !u!114 &1649084354
 MonoBehaviour:
   m_ObjectHideFlags: 0
